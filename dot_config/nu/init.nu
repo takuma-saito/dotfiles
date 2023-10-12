@@ -18,7 +18,7 @@ $env.config.keybindings = ($env.config.keybindings | append {
     mode: [emacs vi_insert]
     event: [{
         send: executehostcommand
-        cmd: "commandline (history | each { |it| $it.command | str trim} | reverse | uniq | str join (char nl) | fzf --layout=reverse --height=40% -q (commandline) | decode utf-8 | str trim)"
+        cmd: "commandline (history | each { |it| $it.command | str trim} | reverse | uniq | str join (char nl) | peco | decode utf-8 | str trim)"
       }
       { send: enter }
     ]
@@ -44,7 +44,7 @@ $env.PATH = ([
      '/usr/local/sbin'
      '/usr/local/libexec'
      '/opt/local/bin'
-   ] | path expand -n)
+   ] | path expand -n) # TODO
 $env.EDITOR = nvim
 alias e = emacsclient
 $env.ASDF_NU_DIR = (brew --prefix asdf | str trim | into string | path join 'libexec')

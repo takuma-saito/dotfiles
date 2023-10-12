@@ -1,4 +1,4 @@
-#!/bin/bash -euC
+#!/bin/bash -eu
 brew install zoxide asdf starship 1password-cli
 mkdir -p ~/.config/nu
 zoxide init nushell > ~/.config/nu/zoxide.nu
