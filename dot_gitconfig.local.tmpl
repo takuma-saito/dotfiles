@@ -1,0 +1,30 @@
+# This is Git's per-user configuration file.
+[user]
+    name = takuma.saito
+    email = {{ onepasswordRead "op://Personal/GITHUB_EMAIL/email" }}
+
+[push]
+    default = current
+    autoSetupRemote = true
+
+[init]
+    defaultBranch = main
+
+[url "git@github.com:"]
+    nsteadOf = https://github.com/
+
+[secrets]
+	providers = git secrets --aws-provider
+	patterns = (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
+	patterns = (\"|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(\"|')?\\s*(:|=>|=)\\s*(\"|')?[A-Za-z0-9/\\+=]{40}(\"|')?
+	patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
+
+[merge]
+    tool = nvimdiff3
+
+[checkout]
+    defaultRemote = origin
+
+[include]
+    path = .gitconfig.local.sign
+
