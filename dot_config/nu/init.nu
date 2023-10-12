@@ -46,7 +46,6 @@ $env.PATH = ([
      '/opt/local/bin'
    ] | path expand -n) # TODO
 $env.EDITOR = nvim
-alias e = emacsclient
 $env.ASDF_NU_DIR = (brew --prefix asdf | str trim | into string | path join 'libexec')
 source ~/.config/nu/zoxide.nu # TODO: zoxide init nushell | save -f ~/.config/nu/zoxide.nu
 source ~/.config/nu/asdf.nu   # TODO: cp $"(brew --prefix asdf)/libexec/asdf.nu" ~/.config/nu/asdf.nu
