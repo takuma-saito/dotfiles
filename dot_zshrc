@@ -137,4 +137,6 @@ zle -N peco-select-history
 bindkey '^r' peco-select-history
 bindkey '^i' expand-or-complete
 
+export SSH_AUTH_SOCK=~/.1password/agent.sock
+
 alias ls='ls -FG'
