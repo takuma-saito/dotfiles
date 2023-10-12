@@ -42,6 +42,5 @@ let g:quickrun_config._ = {
       \ }
 nnoremap <silent><leader>r :QuickRun<CR>
 
-let s:baleia = luaeval("require('baleia').setup { }")
-command! BaleiaColorize call s:baleia.once(bufnr('%'))
-
+" let s:baleia = luaeval("require('baleia').setup { }")
+" command! BaleiaColorize call s:baleia.once(bufnr('%'))
