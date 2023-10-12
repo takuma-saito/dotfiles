@@ -52,4 +52,3 @@ source ~/.config/nu/zoxide.nu # TODO: zoxide init nushell | save -f ~/.config/nu
 source ~/.config/nu/asdf.nu   # TODO: cp $"(brew --prefix asdf)/libexec/asdf.nu" ~/.config/nu/asdf.nu
 $env.SSH_AUTH_SOCK = (echo ~/.1password/agent.sock | path expand) # TODO: ln -sfn "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ~/.1password/agent.sock
 source ~/.config/nu/starship.nu # TODO: starship init nu | save -f ~/.config/nu/starship.nu
-source ~/.config/nu/build-env.nu
