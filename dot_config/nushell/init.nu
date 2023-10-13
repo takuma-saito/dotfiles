@@ -3,6 +3,7 @@ export def-env cd_env [$dir] {
     direnv export json | from json | default {} | load-env
 }
 
+$env.config.edit_mode = vi
 $env.config.show_banner = false
 $env.config.buffer_editor = nvim
 $env.config.rm = { always_trash: false }
