@@ -4,7 +4,7 @@ export def-env cd_env [$dir] {
 }
 
 $env.config.show_banner = false
-$env.config.buffer_editor = vi
+$env.config.buffer_editor = nvim
 $env.config.rm = { always_trash: false }
 $env.config.history = {
     max_size: 1000000 # Session has to be reloaded for this to take effect
