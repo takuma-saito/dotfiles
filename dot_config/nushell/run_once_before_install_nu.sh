@@ -1,5 +1,4 @@
 #!/bin/bash -eu
-brew install zoxide asdf starship 1password-cli nushell
 mkdir -p ~/.config/nushell
 zoxide init nushell > ~/.config/nushell/zoxide.nu
 cp "$(brew --prefix asdf)/libexec/asdf.nu" ~/.config/nushell/asdf.nu
