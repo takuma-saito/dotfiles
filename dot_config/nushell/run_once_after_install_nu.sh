@@ -9,4 +9,4 @@ if [[ "$(grep nu /etc/shells)" == "" ]]; then
     sudo bash -c 'echo $(which nu) >> /etc/shells'
     chsh -s $(which nu)
 fi
-nu -c 'if (open $nu.config-path | lines | where $it =~ "~/.config/nushell/init.nu" | is-empty) { "source ~/.config/nushell/init.nu" | save --append $nu.config-path }'
+nu -c 'config reset; if (open $nu.config-path | lines | where $it =~ "~/.config/nushell/init.nu" | is-empty) { "source ~/.config/nushell/init.nu" | save --append $nu.config-path }'
