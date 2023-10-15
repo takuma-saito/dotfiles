@@ -1,4 +1,4 @@
-#!/bin/bash -euC
+#!/bin/bash -eu
 
 # https://macos-defaults.com/dock/orientation.html
 # https://developer.apple.com/documentation/devicemanagement
@@ -102,5 +102,22 @@ mkdir -p "$chrome_ext_dir"
 cat <<EOF > "$chrome_ext_dir/aeblfdkhhhdcdjpifhhbdiojplfjncoa.json"
 {
   "external_update_url": "https://clients2.google.com/service/update2/crx"
+}
+EOF
+
+# Google Input Method
+cat <<EOF | defaults import com.apple.inputsources -
+{
+    AppleEnabledThirdPartyInputSources =     (
+                {
+            "Bundle ID" = "com.google.inputmethod.Japanese";
+            InputSourceKind = "Keyboard Input Method";
+        },
+                {
+            "Bundle ID" = "com.google.inputmethod.Japanese";
+            "Input Mode" = "com.apple.inputmethod.Japanese";
+            InputSourceKind = "Input Mode";
+        }
+    );
 }
 EOF
