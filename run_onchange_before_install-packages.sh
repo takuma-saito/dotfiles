@@ -34,7 +34,7 @@ cask "zoom"
 cask "alfred"
 cask "stats"
 
-# CLI
+# CLI Must Use
 brew "nvim"
 brew "nushell"
 brew "starship"
@@ -43,11 +43,15 @@ brew "peco"
 brew "sd"
 brew "fd"
 brew "ripgrep"
-brew "mas"
 brew "pre-commit"
 cask "docker"
 cask "alacritty"
 cask "1password-cli"
+
+# CLI Development
+brew "shellcheck"
+brew "shfmt"
+brew "mas"
 
 # Development
 brew "jq"
