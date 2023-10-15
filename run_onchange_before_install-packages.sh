@@ -44,6 +44,7 @@ brew "sd"
 brew "fd"
 brew "ripgrep"
 brew "mas"
+brew "pre-commit"
 cask "docker"
 cask "alacritty"
 cask "1password-cli"
@@ -51,7 +52,6 @@ cask "1password-cli"
 # Development
 brew "jq"
 brew "asdf"
-
 EOF
 
 op account add --address my.1password.com
@@ -60,7 +60,6 @@ op account add --address my.1password.com
 sudo mdutil -a -i off
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 61 "<dict><key>enabled</key><false/></dict>"
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "<dict><key>enabled</key><false/></dict>"
-
 
 # Menu
 cat <<EOF | defaults import com.apple.controlcenter -
@@ -99,7 +98,7 @@ EOF
 # Install 1password extension to chrome
 readonly chrome_ext_dir=~/"Library/Application Support/Google/Chrome/External Extensions/"
 mkdir -p "$chrome_ext_dir"
-cat <<EOF > "$chrome_ext_dir/aeblfdkhhhdcdjpifhhbdiojplfjncoa.json"
+cat <<EOF >"$chrome_ext_dir/aeblfdkhhhdcdjpifhhbdiojplfjncoa.json"
 {
   "external_update_url": "https://clients2.google.com/service/update2/crx"
 }
