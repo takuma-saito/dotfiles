@@ -20,6 +20,9 @@ killall Finder || true
 defaults write com.apple.Music "userWantsPlaybackNotifications" -bool "false"
 killall Music || true
 
+# System
+defaults write -g NSRequiresAquaSystemAppearance -bool Yes
+
 brew bundle --file=/dev/stdin <<EOF
 # Basic Setup
 cask "google-chrome"
@@ -37,6 +40,7 @@ brew "zellij"
 brew "peco"
 brew "sd"
 brew "fd"
+brew "ripgrep"
 cask "docker"
 cask "alacritty"
 cask "1password-cli"
