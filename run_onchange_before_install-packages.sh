@@ -31,6 +31,8 @@ cask "karabiner-elements"
 cask "coteditor"
 cask "1password"
 cask "zoom"
+cask "alfred"
+cask "stats"
 
 # CLI
 brew "nvim"
@@ -41,6 +43,7 @@ brew "peco"
 brew "sd"
 brew "fd"
 brew "ripgrep"
+brew "mas"
 cask "docker"
 cask "alacritty"
 cask "1password-cli"
@@ -52,3 +55,52 @@ brew "asdf"
 EOF
 
 op account add --address my.1password.com
+
+# Spotlight
+sudo mdutil -a -i off
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 61 "<dict><key>enabled</key><false/></dict>"
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "<dict><key>enabled</key><false/></dict>"
+
+
+# Menu
+cat <<EOF | defaults import com.apple.controlcenter -
+{
+    "LastHeartbeatDateString.daily" = "2023-10-15T14:12:16Z";
+    "NSStatusItem Preferred Position Battery" = 215;
+    "NSStatusItem Preferred Position BentoBox" = 143;
+    "NSStatusItem Preferred Position FocusModes" = 333;
+    "NSStatusItem Preferred Position WiFi" = 177;
+    "NSStatusItem Visible AudioVideoModule" = 0;
+    "NSStatusItem Visible Battery" = 1;
+    "NSStatusItem Visible BentoBox" = 1;
+    "NSStatusItem Visible Clock" = 1;
+    "NSStatusItem Visible FocusModes" = 1;
+    "NSStatusItem Visible Item-0" = 0;
+    "NSStatusItem Visible Item-1" = 0;
+    "NSStatusItem Visible Item-2" = 0;
+    "NSStatusItem Visible Item-3" = 0;
+    "NSStatusItem Visible Item-4" = 0;
+    "NSStatusItem Visible Item-5" = 0;
+    "NSStatusItem Visible WiFi" = 1;
+}
+EOF
+
+cat <<EOF | defaults import com.apple.menuextra.clock -
+{
+    FlashDateSeparators = 0;
+    IsAnalog = 0;
+    ShowAMPM = 1;
+    ShowDate = 2;
+    ShowDayOfWeek = 1;
+    ShowSeconds = 0;
+}
+EOF
+
+# Install 1password extension to chrome
+readonly chrome_ext_dir=~/"Library/Application Support/Google/Chrome/External Extensions/"
+mkdir -p "$chrome_ext_dir"
+cat <<EOF > "$chrome_ext_dir/aeblfdkhhhdcdjpifhhbdiojplfjncoa.json"
+{
+  "external_update_url": "https://clients2.google.com/service/update2/crx"
+}
+EOF
