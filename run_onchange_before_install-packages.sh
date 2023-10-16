@@ -23,7 +23,7 @@ killall Music || true
 # System
 defaults write -g NSRequiresAquaSystemAppearance -bool Yes
 
-brew bundle --file=/dev/stdin <<EOF
+brew bundle --force --file=/dev/stdin <<EOF
 # Basic Setup
 cask "google-chrome"
 cask "google-japanese-ime"
@@ -58,7 +58,7 @@ brew "jq"
 brew "asdf"
 EOF
 
-op account add --address my.1password.com
+# op account add --address my.1password.com
 
 # Spotlight
 sudo mdutil -a -i off
