@@ -36,13 +36,11 @@ $env.PATH = ([
      '/usr/bin'
      '/usr/sbin'
      '/usr/libexec'
-    '~/local/google-cloud-sdk/bin'
-    '~/.cargo/bin'
-     '~/.pyenv/shims'
      '~/bin'
      '/usr/local/bin'
-     '/opt/homebrew/bin'
      '/usr/local/sbin'
+     '/opt/homebrew/bin'
+     '/opt/homebrew/sbin'  # TODO
      '/usr/local/libexec'
      '/opt/local/bin'
    ] | path expand -n) # TODO
