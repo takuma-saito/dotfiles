@@ -1,3 +1,0 @@
-#!/bin/bash -euC
-eval $(/opt/homebrew/bin/brew shellenv)
-sudo openvpn --config ~/.openvpn/port_openvpn.conf

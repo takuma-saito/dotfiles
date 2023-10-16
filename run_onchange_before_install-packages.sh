@@ -53,6 +53,7 @@ cask "1password-cli"
 brew "shellcheck"
 brew "shfmt"
 brew "mas"
+brew "openvpn"
 
 # Development
 brew "jq"
@@ -126,6 +127,6 @@ cat <<EOF | defaults import com.apple.inputsources -
 }
 EOF
 
-if [[ "" == "(gh auth token)" ]]; then
+if [[ "" == "$(gh auth token)" ]]; then
     gh auth login
 fi
