@@ -125,3 +125,7 @@ cat <<EOF | defaults import com.apple.inputsources -
     );
 }
 EOF
+
+if [[ "" == "(gh auth token)" ]]; then
+    gh auth login
+fi
