@@ -1,17 +1,18 @@
 #!/bin/bash -eu
 eval "$(/opt/homebrew/bin/brew shellenv)"
 readonly OPENVPN_HOME=/usr/local/openvpn
+readonly OPENVPN_PLIST_NAME=jp.theport.openvpn
 sudo mkdir -p $OPENVPN_HOME{,/sbin,/log,/etc}
 cd "$(dirname "$0")"
-cat <<EOF | sudo tee /Library/LaunchAgents/"$(id -un)".openvpn.plist >/dev/null
+cat <<EOF | sudo tee /Library/LaunchDaemons/$OPENVPN_PLIST_NAME.plist >/dev/null
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
     <key>KeepAlive</key>
-    <true/>
+    <false/>
     <key>Label</key>
-    <string>$(id -un).openvpn</string>
+    <string>$OPENVPN_PLIST_NAME</string>
     <key>UserName</key>
     <string>root</string>
     <key>ProgramArguments</key>
@@ -43,3 +44,4 @@ cat <<EOF | sudo tee $OPENVPN_HOME/sbin/run-openvpn-port >/dev/null
 $(brew --prefix)/sbin/openvpn --config $OPENVPN_HOME/etc/port_openvpn.conf
 EOF
 sudo chmod +x $OPENVPN_HOME/sbin/run-openvpn-port
+sudo launchctl load /Library/LaunchDaemons/$OPENVPN_PLIST_NAME.plist
