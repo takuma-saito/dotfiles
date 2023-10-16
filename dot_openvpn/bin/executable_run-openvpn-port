@@ -1,0 +1,11 @@
+#!/bin/bash -eu
+trap 'rm -f ~/.openvpn/user-password.txt' SIGINT
+cat <<EOF | op inject > ~/.openvpn/user-password.txt # TODO
+{{ op://Personal/PORT_OPENVPN_AUTH_USER_PASS/username }}
+{{ op://Personal/PORT_OPENVPN_AUTH_USER_PASS/password }}
+EOF
+chmod 600 ~/.openvpn/user-password.txt
+cat <<EOF | op inject | sudo openvpn --config /dev/stdin
+{{ op://Personal/port_openvpn/port_openvpn.conf }}
+auth-user-pass $HOME/.openvpn/user-password.txt
+EOF
