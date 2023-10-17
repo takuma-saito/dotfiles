@@ -37,6 +37,7 @@ cask "1password"
 cask "zoom"
 cask "alfred"
 cask "stats"
+cask "maccy"
 
 # CLI Must Use
 brew "nvim"
@@ -68,6 +69,7 @@ EOF
 
 # Spotlight
 sudo mdutil -a -i off
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 60 "<dict><key>enabled</key><false/></dict>"
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 61 "<dict><key>enabled</key><false/></dict>"
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "<dict><key>enabled</key><false/></dict>"
 
