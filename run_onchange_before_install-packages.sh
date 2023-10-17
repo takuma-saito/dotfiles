@@ -38,6 +38,7 @@ cask "zoom"
 cask "raycast"
 cask "stats"
 cask "maccy"
+cask "alt-tab"
 
 # CLI Must Use
 brew "nvim"
@@ -85,7 +86,7 @@ cat <<EOF | defaults import com.apple.controlcenter -
     "NSStatusItem Visible Battery" = 1;
     "NSStatusItem Visible BentoBox" = 1;
     "NSStatusItem Visible Clock" = 1;
-    "NSStatusItem Visible FocusModes" = 1;
+    "NSStatusItem Visible FocusModes" = 1; 
     "NSStatusItem Visible Item-0" = 0;
     "NSStatusItem Visible Item-1" = 0;
     "NSStatusItem Visible Item-2" = 0;
@@ -109,12 +110,12 @@ EOF
 
 # Install 1password extension to chrome
 readonly chrome_ext_dir=~/"Library/Application Support/Google/Chrome/External Extensions/"
-mkdir -p "$chrome_ext_dir"
-cat <<EOF >"$chrome_ext_dir/aeblfdkhhhdcdjpifhhbdiojplfjncoa.json"
-{
+readonly CHROME_EXT_CONTENT='{
   "external_update_url": "https://clients2.google.com/service/update2/crx"
-}
-EOF
+}'
+mkdir -p "$chrome_ext_dir"
+echo "$CHROME_EXT_CONTENT" >"$chrome_ext_dir/aeblfdkhhhdcdjpifhhbdiojplfjncoa.json" # 1password
+echo "$CHROME_EXT_CONTENT" >"$chrome_ext_dir/dbepggeogbaibhgnhhndojpepiihcmeb.json" # vimium
 
 # Google Input Method
 cat <<EOF | defaults import com.apple.inputsources -
