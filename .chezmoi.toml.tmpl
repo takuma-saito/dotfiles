@@ -1,5 +1,13 @@
+{{- $personal := true }}
+{{- if .chezmoi.hostname | regexMatch "^port-.+$" -}}
+{{-     $personal = false -}}
+{{- end -}}
+
 [merge]
     command = "nvim"
 [git]
     autoAdd = true
-
+[data]
+    personal = {{ $personal }}
+[scriptEnv]
+    IS_PERSONAL = {{ $personal }}
