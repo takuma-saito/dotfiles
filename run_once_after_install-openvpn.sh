@@ -2,6 +2,7 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 readonly OPENVPN_HOME=/usr/local/openvpn
 readonly OPENVPN_PLIST_NAME=jp.theport.openvpn
+readonly IS_PERSONAL;
 sudo mkdir -p $OPENVPN_HOME{,/sbin,/log,/etc}
 cd "$(dirname "$0")"
 cat <<EOF | sudo tee /Library/LaunchDaemons/$OPENVPN_PLIST_NAME.plist >/dev/null
@@ -44,4 +45,7 @@ cat <<EOF | sudo tee $OPENVPN_HOME/sbin/run-openvpn-port >/dev/null
 $(brew --prefix)/sbin/openvpn --config $OPENVPN_HOME/etc/port_openvpn.conf
 EOF
 sudo chmod +x $OPENVPN_HOME/sbin/run-openvpn-port
+if [[ $IS_PERSONAL == "true" ]]; then
+    sudo /usr/libexec/PlistBuddy -c 'Set :RunAtLoad bool false' /Library/LaunchDaemons/$OPENVPN_PLIST_NAME.plist
+fi
 sudo launchctl load /Library/LaunchDaemons/$OPENVPN_PLIST_NAME.plist
