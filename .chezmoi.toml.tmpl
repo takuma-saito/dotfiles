@@ -1,5 +1,5 @@
 {{- $personal := true }}
-{{- if .chezmoi.hostname | regexMatch "^port-.+$" -}}
+{{- if .chezmoi.hostname | regexMatch "^PT" -}}
 {{-     $personal = false -}}
 {{- end -}}
 
