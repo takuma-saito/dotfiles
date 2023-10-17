@@ -35,7 +35,7 @@ cask "karabiner-elements"
 cask "coteditor"
 cask "1password"
 cask "zoom"
-cask "alfred"
+cask "raycast"
 cask "stats"
 cask "maccy"
 
