@@ -25,7 +25,7 @@ defaults write -g NSRequiresAquaSystemAppearance -bool Yes
 
 # Touch Bar
 defaults write com.apple.touchbar.agent PresentationModeGlobal -string fullControlStrip
-killall "ControlStrip"
+killall "ControlStrip" || true
 
 brew bundle --force --file=/dev/stdin <<EOF
 # Basic Setup
