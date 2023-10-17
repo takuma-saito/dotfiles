@@ -24,7 +24,7 @@ killall Music || true
 defaults write -g NSRequiresAquaSystemAppearance -bool Yes
 
 # Touch Bar
-defaults write com.apple.touchbar.agent PresentationModeGlobal -string appWithControlStrip
+defaults write com.apple.touchbar.agent PresentationModeGlobal -string fullControlStrip
 killall "ControlStrip"
 
 brew bundle --force --file=/dev/stdin <<EOF
