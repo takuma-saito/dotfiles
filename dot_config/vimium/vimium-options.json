@@ -1,0 +1,14 @@
+{
+  "keyMappings": "# Insert your preferred key mappings here.\nunmap <a-p>\nmap gp togglePinTab",
+  "settingsVersion": "2.0.3",
+  "exclusionRules": [
+    {
+      "passKeys": "jkl",
+      "pattern": "https?://mail.google.com/*"
+    },
+    {
+      "passKeys": "All",
+      "pattern": "https?://www.notion.so/*"
+    }
+  ]
+}
