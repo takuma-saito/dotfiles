@@ -27,6 +27,12 @@ defaults write -g NSRequiresAquaSystemAppearance -bool Yes
 defaults write com.apple.touchbar.agent PresentationModeGlobal -string fullControlStrip
 killall "ControlStrip" || true
 
+if [[ $IS_PERSONAL == true ]]; then
+    brew bundle --force --file=/dev/stdin <<-EOF
+    cask "ledger-live"
+EOF
+fi
+
 brew bundle --force --file=/dev/stdin <<EOF
 # Basic Setup
 cask "google-chrome"
