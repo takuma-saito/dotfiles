@@ -12,18 +12,6 @@ $env.config.history = {
     sync_on_enter: true # Enable to share history between multiple sessions, else you have to close the session to write history to file
     file_format: "plaintext" # "sqlite" or "plaintext"
 }
-$env.config.keybindings = ($env.config.keybindings | append {
-    name: fuzzy_history
-    modifier: control
-    keycode: char_r
-    mode: [emacs vi_insert]
-    event: [{
-        send: executehostcommand
-        cmd: "commandline (history | each { |it| $it.command | str trim} | reverse | uniq | str join (char nl) | peco | decode utf-8 | str trim)"
-      }
-      { send: enter }
-    ]
-})
 $env.config.hooks.env_change.PWD = [{ ||
     if (which direnv | is-empty) {
         return
@@ -51,3 +39,4 @@ source ~/.config/nushell/zoxide.nu # TODO: zoxide init nushell | save -f ~/.conf
 source ~/.config/nushell/asdf.nu   # TODO: cp $"(brew --prefix asdf)/libexec/asdf.nu" ~/.config/nushell/asdf.nu
 $env.SSH_AUTH_SOCK = (echo ~/.1password/agent.sock | path expand) # TODO: ln -sfn "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ~/.1password/agent.sock
 source ~/.config/nushell/starship.nu # TODO: starship init nu | save -f ~/.config/nushell/starship.nu
+source ~/.config/nushell/atuin.nu # TODO: atuin init nu --disable-up-arrow | save ~/.config/nushell/atuin.nu
