@@ -28,3 +28,5 @@
 [include]
     path = .gitconfig.local.sign
 
+[alias]
+    default-branch = "!basename $(git symbolic-ref refs/remotes/origin/HEAD --short)"
