@@ -29,8 +29,8 @@
     path = .gitconfig.local.sign
 
 [alias]
-    default-branch = "!basename $(git symbolic-ref refs/remotes/origin/HEAD --short | tr -d '\n')"
-    restore-origin = "!git fetch --all && git stash && git restore . && git switch -C $(basename $(git rev-parse --abbrev-ref @{u})) $(git rev-parse @{u})"
+    default-branch = "!git symbolic-ref refs/remotes/origin/HEAD --short | tr -d '\n' | sed 's;^origin/;;g'"
+    restore-origin = "!git fetch --all && git stash && git restore . && git switch -C $(git rev-parse --abbrev-ref @{u} | sed 's;^origin/;;') $(git rev-parse @{u})"
     log-short = "!git --no-pager log -30 --oneline"
     graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
