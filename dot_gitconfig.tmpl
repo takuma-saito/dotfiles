@@ -33,3 +33,7 @@
     restore-origin = "!git fetch --all && git stash && git restore . && git switch -C $(basename $(git rev-parse --abbrev-ref @{u})) $(git rev-parse @{u})"
     log-short = "!git --no-pager log -30 --oneline"
     graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+[pager]
+    branch = less -F -X
+    log = less -F -X
