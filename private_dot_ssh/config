@@ -1,2 +1,3 @@
+nclude conf.d/*.conf
 Host *
    StrictHostKeyChecking no
