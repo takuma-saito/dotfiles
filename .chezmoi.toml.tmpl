@@ -2,9 +2,9 @@
 {{- if .chezmoi.hostname | regexMatch "^PT" -}}
 {{-     $personal = false -}}
 {{- end -}}
-
 [merge]
     command = "nvim"
+    args = ["-d", "{{`{{ .Destination }}`}}", "{{`{{ .Source }}`}}", "{{`{{ .Target }}`}}"]
 [edit]
     apply = true
 [git]
