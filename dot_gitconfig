@@ -1,8 +1,3 @@
-# This is Git's per-user configuration file.
-[user]
-    name = takuma.saito
-    email = {{ onepasswordRead "op://Personal/GITHUB_EMAIL/email" }}
-
 [push]
     default = current
     autoSetupRemote = true
@@ -26,7 +21,8 @@
     defaultRemote = origin
 
 [include]
-    path = .gitconfig.local.sign
+    path = .gitconfig.sign
+    path = .gitconfig.email
 
 [alias]
     default-branch = "!git symbolic-ref refs/remotes/origin/HEAD --short | tr -d '\n' | sed 's;^origin/;;g'"
