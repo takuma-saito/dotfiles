@@ -1,0 +1,8 @@
+[".config/alacritty/themes"]
+    type = "git-repo"
+    url = "https://github.com/alacritty/alacritty-theme"
+    refreshPeriod = "168h"
+[".config/nushell/nu-scripts"]
+    type = "git-repo"
+    url = "https://github.com/nushell/nu_scripts"
+    refreshPeriod = "168h"
