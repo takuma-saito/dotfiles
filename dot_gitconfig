@@ -22,7 +22,7 @@
 
 [include]
     path = .gitconfig.sign
-    path = .gitconfig.email
+    path = .gitconfig.user
 
 [alias]
     default-branch = "!git symbolic-ref refs/remotes/origin/HEAD --short | tr -d '\n' | sed 's;^origin/;;g'"
