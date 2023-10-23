@@ -4,10 +4,10 @@ keybinds {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
         unbind "Ctrl o"
-        bind "Ctrl d" { SwitchToMode "Session"; }
+        bind "Ctrl {" { SwitchToMode "Session"; }
     }
     session {
         unbind "Ctrl o"
-        bind "Ctrl d" { SwitchToMode "Normal"; }
+        bind "Ctrl {" { SwitchToMode "Normal"; }
     }
 }
