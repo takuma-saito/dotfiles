@@ -43,8 +43,8 @@ cask "1password"
 cask "zoom"
 cask "raycast"
 cask "stats"
-cask "maccy"
-cask "alt-tab"
+cask "contexts"
+cask "notion"
 
 # CLI Must Use
 brew "nvim"
@@ -92,7 +92,7 @@ cat <<EOF | defaults import com.apple.controlcenter -
     "NSStatusItem Visible Battery" = 1;
     "NSStatusItem Visible BentoBox" = 1;
     "NSStatusItem Visible Clock" = 1;
-    "NSStatusItem Visible FocusModes" = 1; 
+    "NSStatusItem Visible FocusModes" = 1;
     "NSStatusItem Visible Item-0" = 0;
     "NSStatusItem Visible Item-1" = 0;
     "NSStatusItem Visible Item-2" = 0;
