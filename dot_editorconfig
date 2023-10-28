@@ -1,0 +1,4 @@
+root = true
+
+[*.{tf,hcl}]
+indent_size = 2
