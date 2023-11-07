@@ -32,6 +32,7 @@ $env.PATH = ([
      '/usr/local/libexec'
      '/opt/local/bin'
    ] | path expand -n) # TODO
+alias sed = gsed
 $env.EDITOR = nvim
 $env.OP_ACCOUNT = {{- if .personal }} my{{ else }} theport{{ end }}.1password.com
 $env.ASDF_NU_DIR = (brew --prefix asdf | str trim | into string | path join 'libexec')
