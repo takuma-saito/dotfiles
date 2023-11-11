@@ -29,6 +29,7 @@
     restore-origin = "!git fetch --all && git stash --include-untracked && git restore . && git switch -C $(git rev-parse --abbrev-ref @{u} | sed 's;^origin/;;') $(git rev-parse @{u})"
     log-short = "log -15 --oneline"
     diff-name = "!git --no-pager diff --name-only"
+    refresh = "!git fetch --all && git stash -u && git switch --detach $(git symbolic-ref refs/remotes/origin/HEAD --short) && git stash pop"
     graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
 [pager]
