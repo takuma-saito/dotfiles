@@ -30,6 +30,7 @@
     log-short = "log -15 --oneline"
     diff-name = "!git --no-pager diff --name-only"
     refresh = "!f() { git fetch --all && git stash -u && git switch --detach $(git symbolic-ref refs/remotes/origin/HEAD --short) && git stash pop; if [[ \"$1\" != '' ]]; then git switch -C \"$1\"; fi;}; f"
+    review = "!f() { git fetch --all && git switch \"$1\"; }; f"
     graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
 [pager]
