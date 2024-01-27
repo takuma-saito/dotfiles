@@ -4,6 +4,7 @@ zoxide init nushell > ~/.config/nushell/zoxide.nu
 cp "$(brew --prefix asdf)/libexec/asdf.nu" ~/.config/nushell/asdf.nu
 starship init nu > ~/.config/nushell/starship.nu
 atuin init nu --disable-up-arrow > ~/.config/nushell/atuin.nu
+mise activate nu > ~/.config/nushell/mise.nu
 mkdir -p ~/.1password
 ln -sfn ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ~/.1password/agent.sock
 if [[ "$(grep nu /etc/shells)" == "" ]]; then

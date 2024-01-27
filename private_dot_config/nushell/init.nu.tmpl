@@ -37,7 +37,7 @@ $env.EDITOR = nvim
 $env.OP_ACCOUNT = {{- if .personal }} my{{ else }} theport{{ end }}.1password.com
 $env.ASDF_NU_DIR = (brew --prefix asdf | str trim | into string | path join 'libexec')
 source ~/.config/nushell/zoxide.nu # TODO: zoxide init nushell | save -f ~/.config/nushell/zoxide.nu
-source ~/.config/nushell/asdf.nu   # TODO: cp $"(brew --prefix asdf)/libexec/asdf.nu" ~/.config/nushell/asdf.nu
+source ~/.config/nushell/mise.nu # mise activate nu | save -f ~/.config/nushell/mise.nu
 $env.SSH_AUTH_SOCK = (echo ~/.1password/agent.sock | path expand) # TODO: ln -sfn "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" ~/.1password/agent.sock
 source ~/.config/nushell/starship.nu # TODO: starship init nu | save -f ~/.config/nushell/starship.nu
 source ~/.config/nushell/atuin.nu # TODO: atuin init nu --disable-up-arrow | save ~/.config/nushell/atuin.nu
