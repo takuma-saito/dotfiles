@@ -1,6 +1,6 @@
 #!/bin/bash -eu
 mkdir -p ~/.config/nushell
-zoxide init nushell > ~/.config/nushell/zoxide.nu
+zoxide init nushell | str replace --all "-- $rest" "-- ...$rest" | str replace --all "def-env" "def --env" | save -f ~/.config/nushell/zoxide.nu # https://github.com/ajeetdsouza/zoxide/issues/662#issuecomment-1893740288
 cp "$(brew --prefix asdf)/libexec/asdf.nu" ~/.config/nushell/asdf.nu
 starship init nu > ~/.config/nushell/starship.nu
 atuin init nu --disable-up-arrow > ~/.config/nushell/atuin.nu
