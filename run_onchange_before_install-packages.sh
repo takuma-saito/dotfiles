@@ -75,6 +75,7 @@ brew "jq"
 brew "mise"
 brew "asdf"
 brew "zoxide"
+brew "gpg"
 EOF
 
 # op account add --address my.1password.com
