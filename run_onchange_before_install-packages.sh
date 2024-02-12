@@ -44,6 +44,7 @@ cask "zoom"
 cask "raycast"
 cask "stats"
 cask "contexts"
+cask "slack"
 cask "notion"
 
 # CLI Must Use
