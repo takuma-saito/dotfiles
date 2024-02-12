@@ -10,12 +10,5 @@ if [[ "$(grep nu /etc/shells)" == "" ]]; then
     sudo bash -c 'echo $(which nu) >> /etc/shells'
     chsh -s $(which nu)
 fi
-cat <<EOF | op inject | sh
-atuin login \
-  --username "{{ op://Personal/atuin/username }}" \
-  --password "{{ op://Personal/atuin/password }}" \
-  --key "{{ op://Personal/atuin/key }}"
-atuin sync
-EOF
-nu -c 'config reset; if (open $nu.config-path | lines | where $it =~ "~/.config/nushell/init.nu" | is-empty) { "source ~/.config/nushell/init.nu" | save --append $nu.config-path }'
+nu -c 'config reset; if (open $nu.config-path | lines | where $it =~ "~/.config/nushell/init.nu" | is-empty) { "source ~/.config/nushell/init.nu" | save --append --force $nu.config-path }'
 nu -c 'zoxide init nushell | str replace --all "-- $rest" "-- ...$rest" | str replace --all "def-env" "def --env" | save -f ~/.config/nushell/zoxide.nu' # https://github.com/ajeetdsouza/zoxide/issues/662#issuecomment-1893740288

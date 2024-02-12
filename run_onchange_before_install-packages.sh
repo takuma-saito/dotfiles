@@ -72,6 +72,8 @@ brew "openvpn"
 # Development
 brew "jq"
 brew "mise"
+brew "asdf"
+brew "zoxide"
 EOF
 
 # op account add --address my.1password.com
